@@ -2,7 +2,7 @@ import React, {useLayoutEffect, useState, useEffect} from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import PacientList from "../PacientList/PacientList"
 import PacientModal from "../PacientModal/PacientModal"
-import pacientListApi from "../API"
+import pacientListApi from "../../services/RandomUserApi/RandomUserApi"
 
 const HomeScreen = ({navigation}) => {
     
@@ -10,8 +10,8 @@ const HomeScreen = ({navigation}) => {
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('https://randomuser.me/api/?results=5')
-          .then((response) => response.json())
+        pacientListApi()
+          .then((response) => response)
           .then((json) => setData(json.results))
           .catch((error) => console.error(error))
           .finally(() => setLoading(false));
