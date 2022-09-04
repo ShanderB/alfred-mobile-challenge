@@ -7,16 +7,22 @@ import pacientListApi from "../../services/RandomUserApi/RandomUserApi"
 const HomeScreen = ({navigation}) => {
     
     const [Data, setData] = useState([]);
+    const [page, setPage] = useState(1);
     const [isLoading, setLoading] = useState(true);
+
+    const isCloseToBottom = ({layoutMeasurement, contentOffset, contentSize}) => {
+        const paddingToBottom = 20;
+        return layoutMeasurement.height + contentOffset.y >=
+          contentSize.height - paddingToBottom;
+      };
 
     useEffect(() => {
         pacientListApi()
-          .then((response) => response)
-          .then((json) => setData(json.results))
+          .then((json) => setData([...Data, ...json.results]))
           .catch((error) => console.error(error))
           .finally(() => setLoading(false));
 
-      }, []);
+      }, [page]);
     useLayoutEffect(() => {
         navigation.setOptions({
             title: "",
@@ -27,7 +33,7 @@ const HomeScreen = ({navigation}) => {
     })
 
     return (
-        <ScrollView style={styles.container}>
+        <ScrollView onScroll={({nativeEvent})=>isCloseToBottom(nativeEvent) ?setPage(page+1):""} style={styles.container} scrollEventThrottle={400}>
              {isLoading ? <Text>Loading...</Text> :
             <View style={styles.listPacientContainer}>
                 {Data.map((data, index) => (
