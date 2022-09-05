@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useState, useEffect} from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, SliderBase } from 'react-native';
 import PacientList from "../PacientList/PacientList"
 import PacientModal from "../PacientModal/PacientModal"
 import pacientListApi from "../../services/RandomUserApi/RandomUserApi"
@@ -28,10 +28,14 @@ const HomeScreen = ({navigation}) => {
       }, [page]);
     useLayoutEffect(() => {
         navigation.setOptions({
-            title: "",
-            headerLeft:() => (
-                <Text>Lorem Ipsun</Text>
-            )
+            headerStyle:{
+                backgroundColor:'#293241'
+            },
+            headerTitleAlign: "center",
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                fontWeight: 'bold',
+            }
         })
     })
     return (
@@ -42,10 +46,16 @@ const HomeScreen = ({navigation}) => {
                 {isLoading ? <Text>Loading...</Text> :
                     <View style={styles.listPacientContainer}>
                         {Data.map((data, index) => (
-                    <PacientList key={index} data={data}></PacientList>
-                ))}
+                              <TouchableOpacity key={index} onPress={function(){
+                                console.log("Pressed")
+                              }}>
+                                  <PacientList key={index} data={data}></PacientList>
+                                  <PacientModal pacienteData={data}/>
+                              </TouchableOpacity>
+                          ))}
+                      </View>
+                  }
             </View>
-        }
         </ScrollView>
     )
 }
@@ -56,10 +66,27 @@ export default HomeScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "blue",
         flexDirection: 'column'
     },
     listPacientContainer: {
 
+    },
+    pacientInfo: {
+        backgroundColor: "#293241",
+    },
+    modal: {
+        paddingTop: 44,
+        backgroundColor: "purple"
     }
+/*     button: {
+        marginBottom: 30,
+        width: 260,
+        alignItems: 'center',
+        backgroundColor: '#2196F3'
+      },
+      buttonText: {
+        textAlign: 'center',
+        padding: 20,
+        color: 'white'
+      } */
 })
