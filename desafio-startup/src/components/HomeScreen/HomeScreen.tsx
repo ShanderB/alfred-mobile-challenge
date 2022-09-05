@@ -18,7 +18,10 @@ const HomeScreen = ({navigation}) => {
 
     useEffect(() => {
         pacientListApi()
-          .then((json) => setData([...Data, ...json.results]))
+          .then(function(json){
+            setData([...Data, ...json.results]);
+            setLoading(true);
+          })
           .catch((error) => console.error(error))
           .finally(() => setLoading(false));
 
@@ -31,12 +34,14 @@ const HomeScreen = ({navigation}) => {
             )
         })
     })
-
     return (
-        <ScrollView onScroll={({nativeEvent})=>isCloseToBottom(nativeEvent) ?setPage(page+1):""} style={styles.container} scrollEventThrottle={400}>
-             {isLoading ? <Text>Loading...</Text> :
-            <View style={styles.listPacientContainer}>
-                {Data.map((data, index) => (
+        <ScrollView onScroll={function({nativeEvent}){
+            isCloseToBottom(nativeEvent) ? setPage(page+1) : ""
+        }} style={styles.container} scrollEventThrottle={400}>
+            <View style={styles.button}>
+                {isLoading ? <Text>Loading...</Text> :
+                    <View style={styles.listPacientContainer}>
+                        {Data.map((data, index) => (
                     <PacientList key={index} data={data}></PacientList>
                 ))}
             </View>

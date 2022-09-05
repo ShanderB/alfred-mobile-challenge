@@ -5,16 +5,21 @@ import { AntDisign } from "react-native-vector"
 
 
 const PacientList = ({ data }) => {
-    console.log(data)
+    // console.log(data)
 
     return (
         <View style={styles.mainContainer}>
             <View style={styles.container}>
-                <View style={styles.header}>
+                <View style={styles.photoContainer}>
                     <Image style={styles.image} source={{ uri: data.picture.large }}/>
                 </View>
-                <View>
-                    <Text style={styles.nameText}>{data.name.first}</Text>
+                <View style={styles.infoText}>
+                    <Text style={styles.innerText}>Name: </Text>
+                    <Text>{data.name.first} {data.name.last} </Text>
+                </View>
+                <View style={styles.infoText}>
+                <Text style={styles.innerText}>Gender: </Text>
+                    <Text >{data.gender}</Text>
                 </View>
             </View>
         </View>
@@ -28,10 +33,22 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         backgroundColor: "#fafafa",
-        minHeight: 505,
+        minHeight: 100,
         paddingTop: 5,
         marginBottom: 5,
-        marginTop: 5
+        marginTop: 5,
+        marginLeft: 5
+    },
+    infoText:{
+        flex: 1,
+        flexDirection: "row"
+    },
+    photoContainer: {
+        flex: 1,
+        marginRight: -100
+    },
+    innerText: {
+        fontWeight: 'bold'
     },
     mainContainer: {
 
