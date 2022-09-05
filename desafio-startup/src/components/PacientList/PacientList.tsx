@@ -13,13 +13,31 @@ const PacientList = ({ data }) => {
                 <View style={styles.photoContainer}>
                     <Image style={styles.image} source={{ uri: data.picture.large }}/>
                 </View>
-                <View style={styles.infoText}>
-                    <Text style={styles.innerText}>Name: </Text>
-                    <Text>{data.name.first} {data.name.last} </Text>
-                </View>
-                <View style={styles.infoText}>
-                <Text style={styles.innerText}>Gender: </Text>
-                    <Text >{data.gender}</Text>
+                <View>
+                    <View style={styles.infoText}>
+                        <Text style={styles.innerText}>Name: </Text>
+                        <Text>{data.name.first} {data.name.last} </Text>
+                    </View>
+                    <View style={styles.infoText}>
+                    <Text style={styles.innerText}>Gender: </Text>
+                        <Text >{data.gender}</Text>
+                    </View>
+                    <View style={styles.infoText}>
+                    <Text style={styles.innerText}>Contact: </Text>
+                        <Text >{data.email}</Text>
+                    </View>
+                    <View style={styles.infoText}>
+                    <Text style={styles.innerText}>Birth Date: </Text>
+                        <Text >{new Date(data.dob.date).toLocaleDateString('pt-BR')}</Text>
+                    </View>
+                    <View style={styles.infoText}>
+                    <Text style={styles.innerText}>Location: </Text>
+                            <Text style={styles.innerText}>{data.location.country}</Text>
+                    </View>
+                    <View style={styles.infoText}>
+                    <Text style={styles.innerText}>Id: </Text>
+                         <Text style={styles.innerText}>{data.id.value}</Text> 
+                    </View>
                 </View>
             </View>
         </View>
@@ -31,7 +49,7 @@ export default PacientList;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: "row",
+        flexDirection: "column",
         backgroundColor: "#fafafa",
         minHeight: 100,
         paddingTop: 5,
