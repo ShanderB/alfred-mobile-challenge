@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useState, useEffect} from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, SliderBase } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, SliderBase, Button } from 'react-native';
 import PacientList from "../PacientList/PacientList"
 import PacientModal from "../PacientModal/PacientModal"
 import pacientListApi from "../../services/RandomUserApi/RandomUserApi"
@@ -38,6 +38,11 @@ const HomeScreen = ({navigation}) => {
             }
         })
     })
+    const removeItemList = function(id: String){
+        let temp = Data;
+        temp = temp.filter((it) => it.id.value != id)
+        setData(temp);
+    }
     return (
         <ScrollView onScroll={function({nativeEvent}){
             isCloseToBottom(nativeEvent) ? setPage(page+1) : ""
@@ -51,6 +56,8 @@ const HomeScreen = ({navigation}) => {
                               }}>
                                   <PacientList key={index} data={data}></PacientList>
                                   <PacientModal pacienteData={data}/>
+                                  <Button onPress={()=>removeItemList(data.id.value)}/>
+
                               </TouchableOpacity>
                           ))}
                       </View>
