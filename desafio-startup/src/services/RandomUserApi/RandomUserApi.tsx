@@ -1,6 +1,6 @@
 const pacientListApi = async function getMoviesFromApiAsync() {
     try {
-        const response = await fetch('https://randomuser.me/api/?results=5');
+        const response = await fetch('https://randomuser.me/api/?results=50');
         const responseJson = await response.json();
         return responseJson;
     } catch (error) {
