@@ -10,8 +10,18 @@ export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="home" component={HomeScreen}/>
+        <Stack.Screen name="Lorem Ipsum" component={HomeScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+  },
+  listPacientContainer: {
+
+  },
+  pacientInfo: {
+  }
+})
