@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, SliderBase, Butto
 import PacientList from "../PacientList/PacientList"
 import PacientModal from "../PacientModal/PacientModal"
 import pacientListApi from "../../services/RandomUserApi/RandomUserApi"
+import FavoriteScreen from "../FavoriteScreen/FavoriteScreen"
 import styles from "./styles"
 
 const HomeScreen = ({navigation}) => {
@@ -54,10 +55,12 @@ const HomeScreen = ({navigation}) => {
                         {Data.map((data, index) => (
                               <TouchableOpacity key={index} onPress={function(){
                                 // console.log("Pressed")
+                                navigation.navigate("FavoriteScreen", Data)
                               }}>
                                   <PacientList key={index} data={data}></PacientList>
                                   <PacientModal pacienteData={data}/>
                                   <Button title="Excluir" onPress={()=>removeItemList(data.id.value)}></Button>
+                                  <Button title="Favoritar" onPress={()=>console.log("Favorite")}></Button>
 
                               </TouchableOpacity>
                           ))}
