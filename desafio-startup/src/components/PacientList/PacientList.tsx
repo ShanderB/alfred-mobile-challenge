@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, Button } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient"
 import { AntDisign } from "react-native-vector"
-
+import styles from "./styles"
 
 const PacientList = ({ data }) => {
     // console.log(data)
@@ -44,39 +44,6 @@ const PacientList = ({ data }) => {
     )
 }
 
+
+
 export default PacientList;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: "column",
-        backgroundColor: "#fafafa",
-        minHeight: 100,
-        paddingTop: 5,
-        marginBottom: 5,
-        marginTop: 5,
-        marginLeft: 5
-    },
-    infoText:{
-        flex: 1,
-        flexDirection: "row"
-    },
-    photoContainer: {
-        flex: 1,
-        marginRight: -100
-    },
-    innerText: {
-        fontWeight: 'bold'
-    },
-    mainContainer: {
-
-    },
-    linearGradient: {
-
-    },
-    image: {
-        height: 50,
-        width: 50,
-        borderRadius: 40
-    }
-})

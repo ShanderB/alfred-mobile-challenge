@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, SliderBase, Butto
 import PacientList from "../PacientList/PacientList"
 import PacientModal from "../PacientModal/PacientModal"
 import pacientListApi from "../../services/RandomUserApi/RandomUserApi"
+import styles from "./styles"
 
 const HomeScreen = ({navigation}) => {
     
@@ -69,31 +70,3 @@ const HomeScreen = ({navigation}) => {
 
 export default HomeScreen;
 
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'column'
-    },
-    listPacientContainer: {
-
-    },
-    pacientInfo: {
-        backgroundColor: "#293241",
-    },
-    modal: {
-        paddingTop: 44,
-        backgroundColor: "purple"
-    }
-/*     button: {
-        marginBottom: 30,
-        width: 260,
-        alignItems: 'center',
-        backgroundColor: '#2196F3'
-      },
-      buttonText: {
-        textAlign: 'center',
-        padding: 20,
-        color: 'white'
-      } */
-})
