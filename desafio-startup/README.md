@@ -20,7 +20,7 @@ Utilizado Expo e React Native
 Entre no diretório
 ``desafio-startup``
 
-Iniciar o projeto
+Instalar o projeto
 ``npm i``
 
 Iniciar
