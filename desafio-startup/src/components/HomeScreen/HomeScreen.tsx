@@ -53,11 +53,11 @@ const HomeScreen = ({navigation}) => {
                     <View style={styles.listPacientContainer}>
                         {Data.map((data, index) => (
                               <TouchableOpacity key={index} onPress={function(){
-                                console.log("Pressed")
+                                // console.log("Pressed")
                               }}>
                                   <PacientList key={index} data={data}></PacientList>
                                   <PacientModal pacienteData={data}/>
-                                  <Button onPress={()=>removeItemList(data.id.value)}/>
+                                  <Button title="Excluir" onPress={()=>removeItemList(data.id.value)}></Button>
 
                               </TouchableOpacity>
                           ))}
