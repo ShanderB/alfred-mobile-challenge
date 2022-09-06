@@ -1,7 +1,7 @@
-**Alfred Mobile Challenge 🏅 2022**
+# Alfred Mobile Challenge 🏅 2022
 
 
-**Descrição**
+## **Descrição**
 
 Sem costume com React Native, tive trabalho para conseguir no estado atual.
 
@@ -12,17 +12,26 @@ Setar como favoritos consegui até uma parte. Consegui setar como favorito com f
 Não consegui fazer a modal abrir dinamicamente. No momento só abre se eu setar ela para abrir (e abrirá de todos os usuários ao mesmo tempo).
 
 
-**Tecnologias**
+## **Tecnologias**
+
 Utilizado Expo e React Native
 
 
-**Como instalar**
-Entre no diretório
+## **Como instalar**
+
+### Entre no diretório
+
 ``desafio-startup``
 
-Instalar o projeto
+
+
+### Instalar o projeto
+
 ``npm i``
 
-Iniciar
+
+
+### Iniciar
+
 ``npm start``
 
