@@ -4,7 +4,7 @@ import styles from "./styles"
 
 const PacientModal = (pacientData) => {
     var formatedData = Object.values(pacientData)[0]
-        console.log(formatedData)
+        // console.log(formatedData)
     return (
         <View style={styles.patientContent}>
             {/* <Modal visible={false} */}
@@ -12,7 +12,7 @@ const PacientModal = (pacientData) => {
                 animationType={"slide"}
                 transparent={true}
                 onRequestClose={() => {
-                    console.log("CLosed")
+                    // console.log("CLosed")
                   }}>
                 <View style={styles.modalView}>
                         <Image style={styles.image} source={{ uri: formatedData.picture.large }}/>
